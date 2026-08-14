@@ -31,7 +31,7 @@ const loadRecords = async (newOffset = 0) => {
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/salesforce/${selectedObject}?offset=${newOffset}`,
+            `https://cloudvandana-salesforce-crud-5yr5.onrender.com/api/salesforce/${selectedObject}?offset=${newOffset}`,
             {
                 credentials: "include",
             }
@@ -115,8 +115,8 @@ useEffect(() => {
 
     try {
       const url = editingId
-  ? `http://localhost:5000/api/salesforce/${selectedObject}/${editingId}`
-  : `http://localhost:5000/api/salesforce/${selectedObject}`;
+  ? `https://cloudvandana-salesforce-crud-5yr5.onrender.com/api/salesforce/${selectedObject}/${editingId}`
+  : `https://cloudvandana-salesforce-crud-5yr5.onrender.com/api/salesforce/${selectedObject}`;
 
 
   let payload = {};
@@ -231,7 +231,7 @@ const handleView = (record) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/salesforce/${selectedObject}/${id}`,
+        `https://cloudvandana-salesforce-crud-5yr5.onrender.com/api/salesforce/${selectedObject}/${id}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -254,7 +254,7 @@ const handleView = (record) => {
   };
 
   const handleLogin = () => {
-    window.location.href = "http://localhost:5000/auth/login";
+    window.location.href = "https://cloudvandana-salesforce-crud-5yr5.onrender.com/auth/login";
   };
 
   return (
@@ -267,7 +267,7 @@ const handleView = (record) => {
         </button>
 
       <button onClick={() => {
-  window.location.href = "http://localhost:5000/auth/logout";
+  window.location.href = "https://cloudvandana-salesforce-crud-5yr5.onrender.com/auth/logout";
 }}>
   Logout
 </button>
