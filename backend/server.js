@@ -6,19 +6,29 @@ const session = require("express-session");
 
 const app = express();
 
+
+app.set("trust proxy", 1);
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET || "cloudvandana-secret",
         resave: false,
         saveUninitialized: false,
         cookie: {
-            secure: false
+            secure: true,
+            httpOnly: true,
+            sameSite: "none",
+            maxAge: 24 * 60 * 60 * 1000
         }
     })
 );
 
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173",
+        "https://cloudvandana-salesforce-frontend.onrender.com"
+    ],
     credentials: true
 }));
 app.use(express.json());
@@ -87,8 +97,15 @@ app.get("/auth/callback", async (req, res) => {
         req.session.accessToken = data.access_token;
 req.session.instanceUrl = data.instance_url;
 
-res.json({
-    message: "Salesforce login successful"
+req.session.save((err) => {
+    if (err) {
+        console.error("Session save error:", err);
+        return res.status(500).json({
+            error: "Failed to save login session"
+        });
+    }
+
+    res.redirect("https://cloudvandana-salesforce-frontend.onrender.com");
 });
 
     } catch (error) {
@@ -113,7 +130,7 @@ app.get("/auth/logout", (req, res) => {
 
     res.clearCookie("connect.sid");
 
-    res.redirect("http://localhost:5173");
+    res.redirect("https://cloudvandana-salesforce-frontend.onrender.com");
   });
 });
 
