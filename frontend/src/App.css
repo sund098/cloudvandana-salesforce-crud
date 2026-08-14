@@ -1,0 +1,286 @@
+/* ================================
+   Salesforce Contact Manager
+   ================================ */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  background: #f4f6f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f6f9;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* Main application container */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ================================
+   Main Sections
+   ================================ */
+
+#center {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+/* ================================
+   Headings
+   ================================ */
+
+h1 {
+  margin: 0 0 25px;
+  color: #032d60;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 30px 0 15px;
+  color: #032d60;
+  font-size: 28px;
+}
+
+/* ================================
+   Login Button
+   ================================ */
+
+button {
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  padding: 9px 16px;
+  background: white;
+  color: #032d60;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #eef4ff;
+  border-color: #0176d3;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* ================================
+   Status / Messages
+   ================================ */
+
+#center > p {
+  margin: 10px 0;
+  color: #5c6b7a;
+  font-size: 17px;
+}
+
+/* ================================
+   Contact Form
+   ================================ */
+
+input {
+  width: 220px;
+  height: 42px;
+  margin: 4px;
+  padding: 10px 12px;
+  border: 1px solid #c9c9c9;
+  border-radius: 5px;
+  background: white;
+  color: #1f2937;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #0176d3;
+  box-shadow: 0 0 0 2px rgba(1, 118, 211, 0.15);
+}
+
+input::placeholder {
+  color: #7b8794;
+}
+
+/* ================================
+   Add / Update Contact Button
+   ================================ */
+
+button[type="submit"] {
+  background: #0176d3;
+  border-color: #0176d3;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: #014486;
+  border-color: #014486;
+}
+
+/* ================================
+   Contact Table
+   ================================ */
+
+table {
+  width: 100%;
+  margin: 25px auto 0;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+thead {
+  background: #032d60;
+  color: white;
+}
+
+th {
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  color: #374151;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================
+   Action Buttons
+   ================================ */
+
+td button {
+  margin-right: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+td button:first-child {
+  color: #0176d3;
+  border-color: #0176d3;
+}
+
+td button:first-child:hover {
+  background: #eef4ff;
+}
+
+td button:last-child {
+  color: #ba0517;
+  border-color: #ba0517;
+}
+
+td button:last-child:hover {
+  background: #fff1f2;
+}
+
+/* ================================
+   Refresh Button
+   ================================ */
+
+button:not([type="submit"]) {
+  transition: all 0.2s ease;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+@media (max-width: 900px) {
+  #center {
+    padding: 30px 15px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  input {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  #center {
+    padding: 25px 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  button {
+    margin: 5px 2px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+}
+
+/* Disabled buttons */
+button:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:disabled:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
