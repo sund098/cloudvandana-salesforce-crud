@@ -246,6 +246,7 @@ const handleView = (record) => {
       }
 
       setMessage(`${selectedObject} deleted successfully`);
+      setViewingRecord(null);
       loadRecords();
     } catch (error) {
       console.error(error);
