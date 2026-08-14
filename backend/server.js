@@ -154,7 +154,7 @@ app.get("/api/salesforce/:objectName", async (req, res) => {
         "SELECT Id, Name, Phone, Website, Industry, Type FROM Account ORDER BY Id",
 
     Contact:
-        "SELECT Id, FirstName, LastName, Email, Phone, Title FROM Contact ORDER BY Id",
+    "SELECT Id, FirstName, LastName, Email, Phone, Title FROM Contact ORDER BY CreatedDate DESC",
 
     Lead:
         "SELECT Id, FirstName, LastName, Company, Email, Phone FROM Lead ORDER BY Id",
